@@ -1,0 +1,174 @@
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img
+      
+                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/img4.jpg"
+                  alt="Sample photo"
+                  class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" 
+                />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">Student registration form</h3>
+
+                  <form [formGroup]="submitForm" (ngSubmit)="postData();">
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">First name</label> 
+                        <input type="text" id="form3Example1m" class="form-control form-control-lg" formControlName="firstName" />
+                        <div *ngIf="firstName?.invalid && (firstName?.touched || firstName?.dirty)" >
+                          <span style="color:red;" *ngIf="firstName?.errors?.required"> Please Enter your name</span>
+                          <span style="color:red;" *ngIf="firstName?.errors?.minlength?.requiredLength > firstName?.errors?.minlength?.actualLength"> Please Enter minimum 6 charecters</span>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1n">Last name</label>
+                        <input type="text" id="form3Example1n" class="form-control form-control-lg" formControlName="lastName" />
+                        <div *ngIf="lastName?.invalid && (lastName?.touched || lastName?.dirty)" >
+                          <span style="color:red;" *ngIf="lastName?.errors?.required"> Please Enter your name</span>
+                          <span style="color:red;" *ngIf="lastName?.errors?.minlength?.requiredLength > lastName?.errors?.minlength?.actualLength"> Please Enter minimum 6 charecters</span>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1m1">Mother's name</label>
+                        <input type="text" id="form3Example1m1" class="form-control form-control-lg" formControlName="motherName" />
+                        <span style="color:red;" *ngIf="motherName && motherName.invalid && motherName.touched"> Please Enter your mother name</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1n1">Father's name</label>
+                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" formControlName="fatherName" />
+                        <span style="color:red;" *ngIf="fatherName && fatherName.invalid && fatherName.touched"> Please Enter your father name</span>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Address</label>
+                    <input type="text" id="form3Example8" class="form-control form-control-lg" formControlName="Address" />
+                    <span style="color:red;" *ngIf="Address && Address.invalid && Address.touched"> Please Enter your Address</span>
+                  </div>
+  
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2" >
+  
+                    <h6 class="mb-0 me-4">Gender: </h6>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="Gender"
+                        
+                        value="female"
+                        formControlName="Gender"
+                      />
+                      <label class="form-check-label" for="Female">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="Gender"
+                        
+                        value="male"
+                        formControlName="Gender"
+                      />
+                      <label class="form-check-label" for="Male">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="Gender"
+                        value="other"
+                        formControlName="Gender"
+                      />
+                      <label class="form-check-label" for="Other">Other</label>
+                    </div>
+  
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+  
+                      <select class="form-select" formControlName="State" >
+                        <option value="State">State</option>
+                        <option value="Andrapradesh">Andrapradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Delhi">Delhi</option>
+                        
+                      </select>
+                      <span style="color:red;" *ngIf="State && State.invalid && State.touched"> Please Enter your state</span>
+  
+                    </div>
+                    <div class="col-md-6 mb-4">
+  
+                      <select class="form-select form-select-lg" formControlName="City">
+                        <option value="City">City</option>
+                        <option value="Hydrabad">Hydrabad</option>
+                        <option value="Guntur">Guntur</option>
+                        <option value="Chennai">Chennai</option>
+                      </select>
+                      <span style="color:red;" *ngIf="City && City.invalid && City.touched"> Please select your city</span>
+  
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example9">DOB</label>
+                    <input type="date" id="form3Example9" class="form-control form-control-lg" formControlName="DOB" />
+                    <span style="color:red;" *ngIf="DOB && DOB.invalid && DOB.touched"> Please Enter your DOB</span>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example90">Pincode</label>
+                    <input type="text" id="form3Example90" class="form-control form-control-lg" formControlName="Pincode" />
+                    <span style="color:red;" *ngIf="Pincode && Pincode.invalid && Pincode.touched"> Please Enter your pincode</span>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example99">Course</label>
+                    <input type="text" id="form3Example99" class="form-control form-control-lg" formControlName="Course" />
+                    <span style="color:red;" *ngIf="Course && Course.invalid && Course.touched"> Please Enter your couse</span>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example97">Email ID</label>
+                    <input type="email" id="form3Example97" class="form-control form-control-lg" formControlName="emailAddress" />
+                    <span style="color:red;" *ngIf="emailAddress && emailAddress.invalid && emailAddress.touched"> Please Enter your email</span>
+                    
+                  </div>
+  
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="button" (click)="resetForm()" class="btn btn-light btn-lg">Reset all</button>
+                    <button type="submit" [disabled]="!submitForm.valid" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                  </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
